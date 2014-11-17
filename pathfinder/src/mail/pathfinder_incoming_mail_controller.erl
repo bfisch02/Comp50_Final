@@ -1,4 +1,4 @@
--module(cb_tutorial_incoming_mail_controller).
+-module(pathfinder_incoming_mail_controller).
 -compile(export_all).
 
 authorize_(User, DomainName, IPAddress) ->

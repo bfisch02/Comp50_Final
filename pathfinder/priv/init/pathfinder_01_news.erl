@@ -1,4 +1,4 @@
--module(cb_tutorial_01_news).
+-module(pathfinder_01_news).
 
 -export([init/0, stop/1]).
 

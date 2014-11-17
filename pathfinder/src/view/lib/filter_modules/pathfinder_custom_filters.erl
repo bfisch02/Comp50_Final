@@ -1,4 +1,4 @@
--module(cb_tutorial_custom_filters).
+-module(pathfinder_custom_filters).
 -compile(export_all).
 
 % put custom filters in here, e.g.
