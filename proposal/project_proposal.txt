@@ -1,0 +1,54 @@
+Team Name: EmbeddedSpaces 
+Team Members: Tony Cannistra, Brett Fischler, Dan Griffin
+
+Project Idea:
+
+We intend to create an interactive visualization of Wikipedia, the
+implementation of which is divided into two conceptual modules: a concurrent
+back end which handles the Wikipedia database, and a Javascript front end which
+builds and displays the visualization. The back end of our project will expose a
+service to the world which, given two Wikipedia article names and assorted
+tuning parameters, will return a representation of a force-directed graph which
+describes the $n$ shortest paths between the two articles given. This
+information will then be received by the Javascript web front end, which will
+display it using some framework. The web front end will also produce a user
+interface for interacting with the back end, with features such as article title
+autocompletion and parameter choice. The back end of the project will be where
+our knowledge of concurrency enters: using Erlang threads, we hope to increase
+the speed of wikipedia graph access by spawning worker threads as we deepen the
+search throughout the network.
+
+Deliverables:
+
+At a minimum, we'd like to create a back end likely in Erlang which concurrently
+accesses some representation of the Wikipedia graph and returns the $n$ shortest
+paths between two articles in the network. In addition, we will build the
+visualuzation to display this information. Our maximum deliverable is a more
+highly paramaterized version of this project, which allows potentially for the
+comparison of more than two articles at once, and a more robust Wikipedia access
+mechanism which depends less on the representation of the encyclopedia.
+
+Our First Step:
+
+Our first task is to explore the available represntations of Wikipedia.
+Currently Wikipedia is available via web crawling and database downloads of
+various formats, though for our sanity and that of the WikiMedia foundation the
+most favored approach is that of a downloaded database. Pre-processing this
+database by pruning away article contents and only maintaining the network of
+connected articles (names/IDs and edges) is likely to be our first
+implementation challenge. We will then move on to designing an algorithm for the
+concurrent exploration of this data using Erlang threads once we have a
+representaiton we're comfortable with.
+
+Biggest Problem we Forsee:
+
+We believe the most difficult challenge will be in the design of the threaded
+system for accessing the wikipedia graph. While we feel pretty confident in our
+ability to represent the network in a way that facilitates easy access to the
+information we need, we're slightly concerned about thread communication (how do
+we know if two paths, therefore two threads, converge upon the same node on
+their path to the final destination?). We're also anticipating some challenges
+in using Erlang, as it is a new language for all of us, and the unfamiliar
+concurrency aspects of the language will be interesting to learn.
+
+
